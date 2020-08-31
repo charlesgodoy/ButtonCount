@@ -50,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
         tallyResetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tally = 0;
-                currentTally = 0;
-                MediaPlayer resetSound = MediaPlayer.create(MainActivity.this, R.raw.button_confirm_spacey);
-                resetSound.start();
-                tallyCounter.setText(String.valueOf(currentTally));
+                if (currentTally != 0) {
+                    tally = 0;
+                    currentTally = 0;
+                    MediaPlayer resetSound = MediaPlayer.create(MainActivity.this, R.raw.button_confirm_spacey);
+                    resetSound.start();
+                    tallyCounter.setText(String.valueOf(currentTally));
+                }
             }
         });
 
